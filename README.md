@@ -1,6 +1,10 @@
 # webflight-copterface
 
-A port of the [copterface](https://github.com/paulhayes/copterface) as a plugin to the [ardrone-webflight](https://github.com/eschnou/ardrone-webflight) environment.
+This plugin adds face recognition and tracking to the [ardrone-webflight](https://github.com/eschnou/ardrone-webflight) environment. The drone will attempt to detect a face and will try to keep always facing at the face by autonomously rotating towards.
+
+This plugin is a port of [copterface](https://github.com/paulhayes/copterface) to the [ardrone-webflight](https://github.com/eschnou/ardrone-webflight) environment.
+
+[![Copterface screenshot](http://eschnou.github.io/ardrone-webflight/images/copterface.jpg|width=400p)]
 
 ## Warning
 
