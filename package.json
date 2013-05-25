@@ -20,11 +20,10 @@
     "ar-drone": "0.0.5",
     "opencv": "~0.1.0"
   },
-  "author": "Paul Hayes",
+  "author": "Laurent Eschenauer <laurent@eschenauer.be>",
   "contributors": [
     {
-      "name": "Laurent Eschenauer",
-      "email": "laurent@eschenauer.be"
+      "name": "Paul Hayes"
     }
   ],
   "license": "MIT"

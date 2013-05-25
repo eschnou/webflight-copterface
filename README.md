@@ -15,3 +15,7 @@ This code will trigger autonomous movements of the drone. Use at your own risk a
 - Launch webflight
 
 - Press the 'f' key to toggle face tracking on/off
+
+## Thanks
+
+Thanks a lot to [Paul Hayes](https://github.com/paulhayes) for coming up with this awesome hack and sharing it with the rest of the world.
