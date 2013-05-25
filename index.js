@@ -1,22 +1,21 @@
 var cv = require('opencv');
 var fs = require('fs');
 var path = require('path');
-var arDrone = require('ar-drone');
 
-var client, io;
-var lastPng;
+var client, io, lastPng;
+var tracking = false;
+var debug = true;
 var processingImage = false;
-var flying = false;
 var face_cascade = new cv.CascadeClassifier(path.join(__dirname,'node_modules','opencv','data','haarcascade_frontalface_alt2.xml'));
-var startTime = new Date().getTime();
 
-function log(s){
-    var time = ( ( new Date().getTime() - startTime ) / 1000 ).toFixed(2);
-    console.log(time+" \t"+s);
-}   
+function log(string) {
+    if (debug) {
+        console.log(string);
+    }
+}
 
 function detectFaces() { 
-    if((!processingImage) && lastPng) {
+    if(tracking && (!processingImage) && lastPng) {
       processingImage = true;
       cv.readImage( lastPng, function(err, im) {
         var opts = {};
@@ -32,8 +31,7 @@ function detectFaces() {
 
           if( biggestFace ){
             face = biggestFace;
-            io.sockets.emit('face', { x: face.x, y: face.y, width: face.width, height: face.height });
-            console.log( face.x, face.y, face.width, face.height, im.width(), im.height() );
+            io.sockets.emit('face', { x: face.x, y: face.y, w: face.width, h: face.height, iw: im.width(), ih: im.height() });
 
             face.centerX = face.x + face.width * 0.5;
             face.centerY = face.y + face.height * 0.5;
@@ -60,7 +58,6 @@ function detectFaces() {
               setTimeout(function(){
                   log("stopping turn");
                   client.clockwise(0);
-                  //this.stop();
               },100);
             }
             else {
@@ -69,17 +66,12 @@ function detectFaces() {
               else client.up( heightAmount );
               setTimeout(function(){
                 log("stopping altitude change");
-                
                 client.up(0);
-
               },50);
-
             }
-
           }
 
         processingImage = false;
-        //im.save('/tmp/salida.png');
 
       }, opts.scale, opts.neighbors
         , opts.min && opts.min[0], opts.min && opts.min[1]);
@@ -89,16 +81,25 @@ function detectFaces() {
 };
 
 function copterface(name, deps) {
+    debug = deps.debug || false;
     io = deps.io;
+    io.sockets.on('connection', function (socket) {
+        socket.on('/copterface', function (cmd) {
+            console.log("copterface", cmd);
+            if (cmd == "toggle") {
+              tracking = tracking ? false : true;
+            } 
+        });
+    });
+
     client = deps.client;
     client.createPngStream()
       .on('error', console.log)
       .on('data', function(pngBuffer) {
-        console.log("got image");
         lastPng = pngBuffer;
     });
 
-    setInterval( detectFaces, 150);
+    setInterval(detectFaces, 150);
 }
 
 module.exports = copterface;

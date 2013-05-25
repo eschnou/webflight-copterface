@@ -8,3 +8,11 @@
     bottom: 0px;
 }
 
+#copterface-label {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-family: Arial;
+} 
