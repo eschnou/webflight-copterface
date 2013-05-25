@@ -2,8 +2,6 @@
 
 A port of the [copterface](https://github.com/paulhayes/copterface) as a plugin to the [ardrone-webflight](https://github.com/eschnou/ardrone-webflight) environment.
 
-** Work in progress, not functional yet**
-
 ## Warning
 
 This code will trigger autonomous movements of the drone. Use at your own risk and test it in a controlled environment before going outdoors. 
@@ -14,4 +12,6 @@ This code will trigger autonomous movements of the drone. Use at your own risk a
 
 - Edit your webflight config.js to enable this plugin
 
-- Enjoy face detection in your browser
+- Launch webflight
+
+- Press the 'f' key to toggle face tracking on/off
