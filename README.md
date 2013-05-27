@@ -18,6 +18,12 @@ This code will trigger autonomous movements of the drone. Use at your own risk a
 
 - Press the 'f' key to toggle face tracking on/off
 
+## Issues
+
+There is a [limitation](https://github.com/felixge/node-ar-drone/issues/43) in the node-ar-drone lib that prevents this plugin
+to run together with a video plugin. The pull request is ready and needs to be reviewed, in the meanwhile you'll 
+have to apply the patch on your own node-ar-drone module.
+
 ## Thanks
 
 Thanks a lot to [Paul Hayes](https://github.com/paulhayes) for coming up with this awesome hack and sharing it with the rest of the world.
