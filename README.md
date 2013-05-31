@@ -4,7 +4,7 @@ This plugin adds face recognition and tracking to the [ardrone-webflight](https:
 
 This plugin is a port of [copterface](https://github.com/paulhayes/copterface) to the [ardrone-webflight](https://github.com/eschnou/ardrone-webflight) environment.
 
-[![Copterface screenshot](screenshot.jpg "Screenshot")]
+![Copterface screenshot](screenshot.jpg "Screenshot")
 
 ## Warning
 
