@@ -23,7 +23,8 @@
   "author": "Laurent Eschenauer <laurent@eschenauer.be>",
   "contributors": [
     {
-      "name": "Paul Hayes"
+      "name": "Paul Hayes",
+      "name": "Philippe Modard <philippe.modard@gmail.com>"
     }
   ],
   "license": "MIT"

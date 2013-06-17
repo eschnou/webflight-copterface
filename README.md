@@ -26,7 +26,7 @@ Thanks a lot to [Paul Hayes](https://github.com/paulhayes) for coming up with th
 
 ## License
 
-Copyright (c) 2012-2013 Laurent Eschenauer, Paul Hayes
+Copyright (c) 2012-2013 Laurent Eschenauer, Paul Hayes, Philippe Modard
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
